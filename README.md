@@ -6,4 +6,4 @@ basically u just add at least 24 bingo-board entries to `board.js` & then open `
 
 it has a pseudorandom `seed` thing so u can share ur board with someone u love <3
 
-![screeny goes here](screeny.PNG)
+![screeny goes here](screenie.PNG)
