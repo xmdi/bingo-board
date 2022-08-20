@@ -14,14 +14,16 @@
 		}
 	</style>
 </head>
-<body onload="populate_entries()">
+<body onload="start()" style="text-align:center">
 	<script src="board.js"></script>
 	<script>
+		var internal_seed=1337;
 		var entries=['b0e','b1e','b2e','b3e','b4e',
 				'i0e','i1e','i2e','i3e','i4e',
 				'n0e','n1e','n3e','n4e',
 				'g0e','g1e','g2e','g3e','g4e',
 				'o0e','o1e','o2e','o3e','o4e'];
+		var board_entries_saved=[];
 		function pressed(x){
 			var element=document.getElementById(x);
 			if (element.style.fill=="azure"){
@@ -33,10 +35,27 @@
 		}
 		function populate_entries(){
 			for (var i=0;i<24;i++){
-				var random=Math.floor(Math.random()*possible_board_entries.length);
+				//var random=Math.floor(Math.random()*possible_board_entries.length);
+				var random=pseudorand(possible_board_entries.length);
 				var entry=possible_board_entries.splice(random,1)[0];
 				document.getElementById(entries[i]).innerHTML=entry;
 			}
+		}
+		function pseudorand(n){
+			var x=Math.sin(internal_seed++)*(n-1);
+			return Math.abs(Math.floor(x));
+		}
+		function update_seed(){
+			internal_seed=document.getElementById("seed").value;
+			possible_board_entries=[...board_entries_saved];
+			populate_entries();
+		}
+		function start(){
+			board_entries_saved=[...possible_board_entries];
+			internal_seed=Math.floor(Math.random()*99999);
+			document.getElementById("seed").value=internal_seed;
+			console.log(internal_seed);
+			populate_entries();
 		}
 	</script>
 	<svg id="board" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 110" width="800" height="800">
@@ -145,5 +164,7 @@
 			<div id="o4e" onMouseDown="pressed('o4')" class="entry" xmlns="http://www.w3.org/1999/xhtml"></div>
 		</foreignObject>
 	</svg>
+	<br/>
+	seed: <input type="text" id="seed" oninput="update_seed()">
 </body>
 </html>
