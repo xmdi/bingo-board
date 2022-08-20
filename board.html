@@ -1,0 +1,149 @@
+<html>
+<head>
+	<title>Bingo Board</title>
+	<style>	
+		.entry{
+			text-align:center;
+			font-weight:bold;
+			font-size:2;
+			width:16px;
+			height:16px;
+			display:flex;
+			align-items:center;
+			justify-content:center;
+		}
+	</style>
+</head>
+<body onload="populate_entries()">
+	<script src="board.js"></script>
+	<script>
+		var entries=['b0e','b1e','b2e','b3e','b4e',
+				'i0e','i1e','i2e','i3e','i4e',
+				'n0e','n1e','n3e','n4e',
+				'g0e','g1e','g2e','g3e','g4e',
+				'o0e','o1e','o2e','o3e','o4e'];
+		function pressed(x){
+			var element=document.getElementById(x);
+			if (element.style.fill=="azure"){
+				element.style.fill="palegreen";
+			}
+			else{
+				element.style.fill="azure";
+			}
+		}
+		function populate_entries(){
+			for (var i=0;i<24;i++){
+				var random=Math.floor(Math.random()*possible_board_entries.length);
+				var entry=possible_board_entries.splice(random,1)[0];
+				document.getElementById(entries[i]).innerHTML=entry;
+			}
+		}
+	</script>
+	<svg id="board" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 110" width="800" height="800">
+		<rect id="b0" x="5" y="5" width="20" height="20" fill="azure" stroke="black" rx="5" onMouseDown="pressed('b0')"/>
+		<foreignObject x="7" y="7" width="16" height="16">
+			<div id="b0e" onMouseDown="pressed('b0')" class="entry" xmlns="http://www.w3.org/1999/xhtml">yo whats up my dudes</div>
+		</foreignObject>
+		<rect id="b1" x="5" y="25" width="20" height="20" fill="azure" stroke="black" rx="5" onMouseDown="pressed('b1')"/>
+		<foreignObject x="7" y="27" width="16" height="16">
+			<div id="b1e" onMouseDown="pressed('b1')" class="entry" xmlns="http://www.w3.org/1999/xhtml">yo whats up my dudes</div>
+		</foreignObject>
+		<rect id="b2" x="5" y="45" width="20" height="20" fill="azure" stroke="black" rx="5" onMouseDown="pressed('b2')"/>
+		<foreignObject x="7" y="47" width="16" height="16">
+			<div id="b2e" onMouseDown="pressed('b2')" class="entry" xmlns="http://www.w3.org/1999/xhtml">yo whats up my dudes</div>
+		</foreignObject>
+		<rect id="b3" x="5" y="65" width="20" height="20" fill="azure" stroke="black" rx="5" onMouseDown="pressed('b3')"/>
+		<foreignObject x="7" y="67" width="16" height="16">
+			<div id="b3e" onMouseDown="pressed('b3')" class="entry" xmlns="http://www.w3.org/1999/xhtml">yo whats up my dudes</div>
+		</foreignObject>
+		<rect id="b4" x="5" y="85" width="20" height="20" fill="azure" stroke="black" rx="5" onMouseDown="pressed('b4')"/>
+		<foreignObject x="7" y="87" width="16" height="16">
+			<div id="b4e" onMouseDown="pressed('b4')" class="entry" xmlns="http://www.w3.org/1999/xhtml">yo whats up my dudes</div>
+		</foreignObject>
+
+		<rect id="i0" x="25" y="5" width="20" height="20" fill="azure" stroke="black" rx="5" onMouseDown="pressed('i0')"/>
+		<foreignObject x="27" y="7" width="16" height="16">
+			<div id="i0e" onMouseDown="pressed('i0')" class="entry" xmlns="http://www.w3.org/1999/xhtml">yo whats up my dudes</div>
+		</foreignObject>
+		<rect id="i1" x="25" y="25" width="20" height="20" fill="azure" stroke="black" rx="5" onMouseDown="pressed('i1')"/>
+		<foreignObject x="27" y="27" width="16" height="16">
+			<div id="i1e" onMouseDown="pressed('i1')" class="entry" xmlns="http://www.w3.org/1999/xhtml">yo whats up my dudes</div>
+		</foreignObject>
+		<rect id="i2" x="25" y="45" width="20" height="20" fill="azure" stroke="black" rx="5" onMouseDown="pressed('i2')"/>
+		<foreignObject x="27" y="47" width="16" height="16">
+			<div id="i2e" onMouseDown="pressed('i2')" class="entry" xmlns="http://www.w3.org/1999/xhtml">yo whats up my dudes</div>
+		</foreignObject>
+		<rect id="i3" x="25" y="65" width="20" height="20" fill="azure" stroke="black" rx="5" onMouseDown="pressed('i3')"/>
+		<foreignObject x="27" y="67" width="16" height="16">
+			<div id="i3e" onMouseDown="pressed('i3')" class="entry" xmlns="http://www.w3.org/1999/xhtml">yo whats up my dudes</div>
+		</foreignObject>
+		<rect id="i4" x="25" y="85" width="20" height="20" fill="azure" stroke="black" rx="5" onMouseDown="pressed('i4')"/>
+		<foreignObject x="27" y="87" width="16" height="16">
+			<div id="i4e" onMouseDown="pressed('i4')" class="entry" xmlns="http://www.w3.org/1999/xhtml">yo whats up my dudes</div>
+		</foreignObject>
+
+		<rect id="n0" x="45" y="5" width="20" height="20" fill="azure" stroke="black" rx="5" onMouseDown="pressed('n0')"/>
+		<foreignObject x="47" y="7" width="16" height="16">
+			<div id="n0e" onMouseDown="pressed('n0')" class="entry" xmlns="http://www.w3.org/1999/xhtml">yo whats up my dudes</div>
+		</foreignObject>
+		<rect id="n1" x="45" y="25" width="20" height="20" fill="azure" stroke="black" rx="5" onMouseDown="pressed('n1')"/>
+		<foreignObject x="47" y="27" width="16" height="16">
+			<div id="n1e" onMouseDown="pressed('n1')" class="entry" xmlns="http://www.w3.org/1999/xhtml">yo whats up my dudes</div>
+		</foreignObject>
+		<rect id="n2" x="45" y="45" width="20" height="20" fill="darksalmon" stroke="black" rx="5"/>
+		<foreignObject x="47" y="47" width="16" height="16">
+			<div id="n2e" class="entry" xmlns="http://www.w3.org/1999/xhtml">FREE</div>
+		</foreignObject>
+		<rect id="n3" x="45" y="65" width="20" height="20" fill="azure" stroke="black" rx="5" onMouseDown="pressed('n3')"/>
+		<foreignObject x="47" y="67" width="16" height="16">
+			<div id="n3e" onMouseDown="pressed('n3')" class="entry" xmlns="http://www.w3.org/1999/xhtml">yo whats up my dudes</div>
+		</foreignObject>
+		<rect id="n4" x="45" y="85" width="20" height="20" fill="azure" stroke="black" rx="5" onMouseDown="pressed('n4')"/>
+		<foreignObject x="47" y="87" width="16" height="16">
+			<div id="n4e" onMouseDown="pressed('n4')" class="entry" xmlns="http://www.w3.org/1999/xhtml">yo whats up my dudes</div>
+		</foreignObject>
+
+		<rect id="g0" x="65" y="5" width="20" height="20" fill="azure" stroke="black" rx="5" onMouseDown="pressed('g0')"/>
+		<foreignObject x="67" y="7" width="16" height="16">
+			<div id="g0e" onMouseDown="pressed('g0')" class="entry" xmlns="http://www.w3.org/1999/xhtml">yo whats up my dudes</div>
+		</foreignObject>
+		<rect id="g1" x="65" y="25" width="20" height="20" fill="azure" stroke="black" rx="5" onMouseDown="pressed('g1')"/>
+		<foreignObject x="67" y="27" width="16" height="16">
+			<div id="g1e" onMouseDown="pressed('g1')" class="entry" xmlns="http://www.w3.org/1999/xhtml">yo whats up my dudes</div>
+		</foreignObject>
+		<rect id="g2" x="65" y="45" width="20" height="20" fill="azure" stroke="black" rx="5" onMouseDown="pressed('g2')"/>
+		<foreignObject x="67" y="47" width="16" height="16">
+			<div id="g2e" onMouseDown="pressed('g2')" class="entry" xmlns="http://www.w3.org/1999/xhtml">yo whats up my dudes</div>
+		</foreignObject>
+		<rect id="g3" x="65" y="65" width="20" height="20" fill="azure" stroke="black" rx="5" onMouseDown="pressed('g3')"/>
+		<foreignObject x="67" y="67" width="16" height="16">
+			<div id="g3e" onMouseDown="pressed('g3')" class="entry" xmlns="http://www.w3.org/1999/xhtml">yo whats up my dudes</div>
+		</foreignObject>
+		<rect id="g4" x="65" y="85" width="20" height="20" fill="azure" stroke="black" rx="5" onMouseDown="pressed('g4')"/>
+		<foreignObject x="67" y="87" width="16" height="16">
+			<div id="g4e" onMouseDown="pressed('g4')" class="entry" xmlns="http://www.w3.org/1999/xhtml">yo whats up my dudes</div>
+		</foreignObject>
+
+		<rect id="o0" x="85" y="5" width="20" height="20" fill="azure" stroke="black" rx="5" onMouseDown="pressed('o0')"/>
+		<foreignObject x="87" y="7" width="16" height="16">
+			<div id="o0e" onMouseDown="pressed('o0')" class="entry" xmlns="http://www.w3.org/1999/xhtml">yo whats up my dudes</div>
+		</foreignObject>
+		<rect id="o1" x="85" y="25" width="20" height="20" fill="azure" stroke="black" rx="5" onMouseDown="pressed('o1')"/>
+		<foreignObject x="87" y="27" width="16" height="16">
+			<div id="o1e" onMouseDown="pressed('o1')" class="entry" xmlns="http://www.w3.org/1999/xhtml">yo whats up my dudes</div>
+		</foreignObject>
+		<rect id="o2" x="85" y="45" width="20" height="20" fill="azure" stroke="black" rx="5" onMouseDown="pressed('o2')"/>
+		<foreignObject x="87" y="47" width="16" height="16">
+			<div id="o2e" onMouseDown="pressed('o2')" class="entry" xmlns="http://www.w3.org/1999/xhtml">yo whats up my dudes</div>
+		</foreignObject>
+		<rect id="o3" x="85" y="65" width="20" height="20" fill="azure" stroke="black" rx="5" onMouseDown="pressed('o3')"/>
+		<foreignObject x="87" y="67" width="16" height="16">
+			<div id="o3e" onMouseDown="pressed('o3')" class="entry" xmlns="http://www.w3.org/1999/xhtml">yo whats up my dudes</div>
+		</foreignObject>
+		<rect id="o4" x="85" y="85" width="20" height="20" fill="azure" stroke="black" rx="5" onMouseDown="pressed('o4')"/>
+		<foreignObject x="87" y="87" width="16" height="16">
+			<div id="o4e" onMouseDown="pressed('o4')" class="entry" xmlns="http://www.w3.org/1999/xhtml">yo whats up my dudes</div>
+		</foreignObject>
+	</svg>
+</body>
+</html>
